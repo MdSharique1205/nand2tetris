@@ -1,0 +1,71 @@
+
+// LISTENING
+(LISTEN)
+@KBD
+D=M
+
+// if D !=0 BLACK 
+@BLACK
+D;JNE
+// else goto WHITE
+@WHITE
+0;JMP
+
+
+
+(BLACK)
+
+// i=0
+@i
+M=0
+
+(BLACKLOOP)
+//If i==1024 goto LISTEN
+@8192
+D=A
+@i
+D=M-D
+@LISTEN
+D;JEQ
+
+@i
+D=M
+
+@SCREEN
+A=D+A
+M=-1
+
+@i
+M=M+1
+
+@BLACKLOOP
+0;JMP
+
+(WHITE)
+
+// i=0
+@i
+M=0
+
+(WHITELOOP)
+//If i==1024 goto LISTEN
+@8192
+D=A
+@i
+D=M-D
+@LISTEN
+D;JEQ
+
+@i
+D=M
+
+@SCREEN
+A=A+D
+M=0
+
+@i
+M=M+1
+
+@WHITELOOP
+0;JMP
+

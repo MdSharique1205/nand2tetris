@@ -1,0 +1,11 @@
+@LAB
+
+(LAB)
+M=M+1;JNE
+
+@17
+A=A+1
+
+(END)
+@END
+0;JMP
